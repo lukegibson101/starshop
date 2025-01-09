@@ -4,8 +4,8 @@
 <h1><strong>Starshop</strong>: your monopoly-busting option for Starship parts!</h1>
 
 <div>
-    Browse through {{ numberOfStarships }} starships!
-    {% if numberOfStarships > 400 %}
+    Browse through {{ ships|length }} starships!
+    {% if ships|length > 1 %}
         {# Comments here #}
         <p>That's a lot of starships!</p>
     {% endif %}
@@ -17,7 +17,9 @@
         <tr>
             <th>Ship</th>
             <td>
-                {{ myShip.name }}
+                <a href="{{ path('app_starship_show', {id: myShip.id}) }}">
+                    {{ myShip.name }}
+                </a>
             </td>
         </tr>
         <tr>
